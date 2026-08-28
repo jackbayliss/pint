@@ -44,7 +44,7 @@ class Prettier
     }
 
     /**
-     * The root directory of the node project.
+     * The root directory of the JavaScript project.
      */
     public function projectRoot(): string
     {
@@ -182,7 +182,7 @@ class Prettier
     }
 
     /**
-     * The path to the bundled node script that probes installed package versions.
+     * The path to the bundled script that probes installed package versions.
      */
     public function versionProbePath(): string
     {
