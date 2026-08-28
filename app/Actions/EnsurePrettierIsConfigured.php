@@ -99,7 +99,7 @@ class EnsurePrettierIsConfigured
     }
 
     /**
-     * Ensure the JavaScript runtime required to run the bundled prettier scripts is installed.
+     * Ensure the JavaScript runtime is installed.
      */
     protected function ensureRuntimeIsInstalled(): static
     {
