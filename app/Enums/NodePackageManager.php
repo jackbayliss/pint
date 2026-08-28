@@ -50,7 +50,7 @@ enum NodePackageManager: string
     }
 
     /**
-     * The JavaScript runtime binary used to execute the bundled prettier scripts.
+     * The JavaScript runtime binary used to execute scripts.
      */
     public function runtimeBinary(): string
     {
