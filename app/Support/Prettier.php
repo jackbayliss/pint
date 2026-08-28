@@ -198,8 +198,7 @@ class Prettier
     }
 
     /**
-     * The JavaScript runtime binary used to execute the bundled prettier scripts,
-     * matching the package manager detected for the project.
+     * The JavaScript runtime binary used to execute the bundled prettier scripts.
      */
     public function runtimeBinary(): string
     {
