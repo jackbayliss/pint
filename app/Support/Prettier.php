@@ -2,6 +2,7 @@
 
 namespace App\Support;
 
+use App\Enums\NodePackageManager;
 use App\Exceptions\PrettierException;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -146,7 +147,7 @@ class Prettier
         }
 
         $this->process = new Process(
-            ['node', $this->workerPath(), $this->projectRoot, $this->configPath()],
+            [$this->runtimeBinary(), $this->workerPath(), $this->projectRoot, $this->configPath()],
             $this->projectRoot,
         );
 
@@ -194,6 +195,15 @@ class Prettier
     public function configPath(): string
     {
         return $this->resourcePath('prettier/prettierrc.json');
+    }
+
+    /**
+     * The JavaScript runtime binary used to execute the bundled prettier scripts,
+     * matching the package manager detected for the project.
+     */
+    public function runtimeBinary(): string
+    {
+        return NodePackageManager::detect($this->projectRoot)->runtimeBinary();
     }
 
     /**
