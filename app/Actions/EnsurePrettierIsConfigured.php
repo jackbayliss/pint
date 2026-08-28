@@ -103,13 +103,8 @@ class EnsurePrettierIsConfigured
      */
     protected function ensureRuntimeIsInstalled(): static
     {
-        $binary = $this->prettier->runtimeBinary();
-
-        if (Process::run([$binary, '-v'])->failed()) {
-            abort(1, sprintf(
-                'The rules enabled in your pint configuration require [%s] to be installed.',
-                $binary,
-            ));
+        if (Process::run([$this->prettier->runtimeBinary(), '-v'])->failed()) {
+            abort(1, 'The rules enabled in your pint configuration require a Node.js runtime to be installed.');
         }
 
         return $this;
